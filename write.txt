@@ -1,0 +1,5 @@
+& C:/Users/dinos/anaconda/python.exe c:/Users/dinos/Python/程式設計/307.py
+5
+5
+5
+5
