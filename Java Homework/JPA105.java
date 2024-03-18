@@ -1,10 +1,10 @@
 import java.util.Scanner;
-public class JPA015 {
+public class JPA105 {
     public static void main(String args[]){
         Scanner s = new Scanner(System.in,"UTF-8");
-        System.out.print("請輸入您的姓名 : ");
+        System.out.print("請輸入您的姓名:");
         String name =s.nextLine();
-        System.out.println("Hi."+name+"請輸入您的銅板的個數:");
+        System.out.println("Hi."+name+",請輸入您的銅板的個數:");
         System.out.printf("請輸入1元的數量: " );
         int b = s.nextInt();
         System.out.printf("請輸入5元的數量: ");

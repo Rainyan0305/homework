@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class JPA014 {
+public class JPA104 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.print("輸入第1組的x和y座標:");

@@ -1,4 +1,4 @@
-public class JPA017 {
+public class JPA107 {
     public static void main(String args[]) {
         int skill = 2, action = 1, teamgame = 3;
 

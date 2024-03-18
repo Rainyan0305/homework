@@ -1,4 +1,4 @@
-public class JPA016 {
+public class JPA106 {
     public static void main(String args[]){
         double result1 = Calcution(-3.2);
         System.out.printf("f(-3.2) = %.4f%n",result1);

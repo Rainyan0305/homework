@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class JPA012 {
+public class JPA102
+ {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println("請輸入：");
+        System.out.println("Please Input：");
         int x = s.nextInt();
         double y = x * 2.20462;
-        System.out.println(String.format("%.6f 公斤 = %.6f 磅", (double) x, y));
+        System.out.println(String.format("%.1f kg = %.4f ponds", (double) x, y));
         s.close();
     }
 }

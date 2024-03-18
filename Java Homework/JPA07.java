@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class JPA07 {
     public static void main(String[] args) {
         Scanner number = new Scanner(System.in);
-        try {
-            while (true) {
+        
+            for (int i = 0; i < 4; i++) {
                 System.out.print("請輸入三個整數:");
                 int number1 = number.nextInt();
                 int number2 = number.nextInt();
@@ -21,8 +21,6 @@ public class JPA07 {
                     System.out.printf("銳角三角形\n");
                 }
             }
-        } finally {
             number.close();
-        }
     }
 }
