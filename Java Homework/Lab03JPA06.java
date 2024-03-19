@@ -10,7 +10,7 @@ public class Lab03JPA06 {
             if (fr == 999) {
                 break;
             }
-            System.out.printf("%d%n",(int)Math.pow(fr, multiple));
+            System.out.printf("%d%n",(long)Math.pow(fr, multiple));
         }
         number.close();
     }
