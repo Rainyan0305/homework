@@ -1,110 +1,39 @@
-import time
-import random
-from tkinter import *
+import math
+import pygame
+pygame.init()
 
-random_r = random.randint(0 , 255)
-time.sleep(1)
-random_g = random.randint(0 , 255)
-time.sleep(1)
-random_b = random.randint(0 , 255)
+windowSize = [400 , 300]
+screen = pygame.display.set_mode(windowSize)
+clock = pygame.time.Clock()
 
-colour = (random_r , random_g , random_b)
-print(colour)
+width = 200
+height = 200
+x = windowSize[0] / 2 - width / 2
+y = windowSize[1] / 2 - height / 2
+colourcircle = pygame.color.Color("#B15BFF")
+coloursquare = pygame.color.Color("#FFBFFF")
+white = pygame.color.Color("#F0F0F0")
 
-clicks_r = 0
-clicks_g = 0
-clicks_b = 0
+count = 0
 
-start = time.time()
+done = False
+while not done:
+    screen.fill(white)
+    pygame.draw.rect(screen , coloursquare , [x , y , width , height])
+    width += math.cos(count) * 10
+    x -= (math.cos(count) * 10) / 2
+    height += math.sin(count) * 10
+    y -= (math.sin(count) * 10) / 2
+    pygame.draw.ellipse(screen , colourcircle, [x , y , width , height])
+    count += 0.5
 
-goal = colour
-
-def rgb_to_hex(rgb):
-    return '#%02x%02x%02x' % (rgb)
-S
-def rendering():
-
-    def get_values():
-        return(int(red_slider.get()) , int(green_slider.get()) , int(blue_slider.get()))
+    pygame.display.flip()
     
-    def check_correct():
-        global goal
-        global clicks_r
-        global clicks_g
-        global clicks_b
-        global start
-        if clicks_r == goal[0]:
-            if clicks_g == goal[1]:
-                if clicks_b == goal[2]:
-                    score = time.time() - start
-                    label.config(text = "Time: " + str(score))
-
-    def button_r_Click():
-        global clicks_r
-    
-        if clicks_r + 1 >= 255:
-            clicks_r = 0
-    
-        else:
-            clicks_r = clicks_r + 1
-    
-        red_slider.set(clicks_r)
-        change = (clicks_r , clicks_g , clicks_b)
-        canvas_second.configure(bg = rgb_to_hex(change))
-        check_correct()
-
-    def button_g_Click():
-        global clicks_g
-    
-        if clicks_g + 1 >= 255:
-            clicks_g = 0
-    
-        else:
-            clicks_g = clicks_g + 1
-    
-        green_slider.set(clicks_g)
-        change = (clicks_r , clicks_g , clicks_b)
-        canvas_second.configure(bg = rgb_to_hex(change))
-        check_correct()
-    
-    def button_b_Click():
-        global clicks_b
-    
-        if clicks_b + 1 >= 255:
-            clicks_b = 0
-    
-        else:
-            clicks_b = clicks_b + 1
-    
-        blue_slider.set(clicks_b)
-        change = (clicks_r , clicks_g , clicks_b)
-        canvas_second.configure(bg = rgb_to_hex(change))
-        check_correct()
-
-    window = Tk()
-
-    global colour
-
-    canvas_first = Canvas(window , height = 300 , width = 300 , bg = rgb_to_hex(colour))
-    red_slider = Scale(window , from_ = 0 , to = 255)
-    green_slider = Scale(window , from_ = 0 , to = 255)
-    blue_slider = Scale(window , from_ = 0 , to = 255)
-    button_r = Button(window , text = "Click me" , command = button_r_Click)
-    button_g = Button(window , text = "Click me" , command = button_g_Click)
-    button_b = Button(window , text = "Click me" , command = button_b_Click)
-    canvas_second = Canvas(window , height = 300 , width = 300 , bg = rgb_to_hex((0 , 0 , 0)))
-    label = Label(window)
-
-    canvas_first.grid(column = 1 , row = 0)
-    red_slider.grid(column = 0 , row = 1)
-    green_slider.grid(column = 1, row = 1)
-    blue_slider.grid(column = 2 , row = 1)
-    button_r.grid(column = 0 , row = 2)
-    button_g.grid(column = 1 , row = 2)
-    button_b.grid(column = 2 , row = 2)
-    canvas_second.grid(column = 1 , row = 3)
-    label.grid(column = 1 , row = 4)
-
-    mainloop()
-
-rendering()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                done = True
+    clock.tick(24)
+pygame.quit()
