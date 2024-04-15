@@ -4,9 +4,9 @@ public class JP207 {
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
         if(Prime(num)){
-            System.out.println(num+"is a prime number");
+            System.out.println(num+" is a prime number");
         }else{
-            System.out.println(num+"is not a prime number");
+            System.out.println(num+" is not a prime number");
         }
         scanner.close();
     }
